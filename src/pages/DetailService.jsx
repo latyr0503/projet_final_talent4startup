@@ -1,9 +1,8 @@
 import React from "react";
-import Teste from "../components/Teste";
 
-export const Home = () => {
+export default function DetailService() {
   return (
-    <div className="h-screen w-full bg-red-700 text-white">
+    <div className="h-screen w-full bg-emerald-700 text-white">
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto velit
         quas quasi nihil doloribus officia ipsam labore repudiandae porro modi
@@ -17,7 +16,6 @@ export const Home = () => {
         doloribus laborum nulla voluptas nisi assumenda alias pariatur amet
         dolor sapiente tenetur vitae animi, consequuntur quis facilis! Illum?
       </p>
-      <Teste/>
     </div>
   );
-};
+}

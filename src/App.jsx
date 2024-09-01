@@ -6,8 +6,9 @@ import { Home } from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { NosDoctors } from "./pages/NosDoctors";
-import { Services } from "./pages/Services";
 import { PageVide } from "./pages/PageVide";
+import DetailDoctor from "./pages/DetailDoctor";
+import DetailService from "./pages/DetailService";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="nos-doctors" element={<NosDoctors />} />
-            <Route path="services" element={<Services />} />
+            <Route path="nos-doctors/detail" element={<NosDoctors />} />
+            <Route path="services" element={<DetailDoctor />} />
+            <Route path="services/detail" element={<DetailService />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<PageVide />} />
           </Route>
