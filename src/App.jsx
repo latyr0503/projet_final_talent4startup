@@ -1,20 +1,20 @@
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { NosDoctors } from "./pages/NosDoctors";
 import { Services } from "./pages/Services";
 import { PageVide } from "./pages/PageVide";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navbar />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="nos-doctors" element={<NosDoctors />} />

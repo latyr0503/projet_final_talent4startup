@@ -2,20 +2,44 @@ import React from "react";
 
 export const NosDoctors = () => {
   return (
-    <div className="h-screen w-full bg-purple-700 text-white">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto velit
-        quas quasi nihil doloribus officia ipsam labore repudiandae porro modi
-        tempore sit, corporis commodi distinctio esse cupiditate impedit nisi
-        eum ut consequuntur. Blanditiis, possimus dicta quasi omnis saepe
-        asperiores repellat molestiae! Voluptas, tempora quisquam nisi dolor
-        magnam maxime eum dolore voluptatem quaerat ea perferendis laborum
-        consequatur unde nostrum repudiandae perspiciatis aliquid, sit vel ipsa
-        ullam! Mollitia, asperiores alias dolore nemo aspernatur, magnam,
-        recusandae repellat nisi vero voluptates nesciunt modi maxime? A, quae
-        doloribus laborum nulla voluptas nisi assumenda alias pariatur amet
-        dolor sapiente tenetur vitae animi, consequuntur quis facilis! Illum?
-      </p>
+    <div>
+      <div className="carousel rounded-box">
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
+      alt="Burger" />
+  </div>
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
+      alt="Burger" />
+  </div>
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+      alt="Burger" />
+  </div>
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
+      alt="Burger" />
+  </div>
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
+      alt="Burger" />
+  </div>
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
+      alt="Burger" />
+  </div>
+  <div className="carousel-item">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
+      alt="Burger" />
+  </div>
+</div>
     </div>
   );
 };

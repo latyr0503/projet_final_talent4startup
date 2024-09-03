@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
 export default function About() {
   return (
-    <div className="h-screen w-full bg-green-700 text-white">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto velit
-        quas quasi nihil doloribus officia ipsam labore repudiandae porro modi
-        tempore sit, corporis commodi distinctio esse cupiditate impedit nisi
-        eum ut consequuntur. Blanditiis, possimus dicta quasi omnis saepe
-        asperiores repellat molestiae! Voluptas, tempora quisquam nisi dolor
-        magnam maxime eum dolore voluptatem quaerat ea perferendis laborum
-        consequatur unde nostrum repudiandae perspiciatis aliquid, sit vel ipsa
-        ullam! Mollitia, asperiores alias dolore nemo aspernatur, magnam,
-        recusandae repellat nisi vero voluptates nesciunt modi maxime? A, quae
-        doloribus laborum nulla voluptas nisi assumenda alias pariatur amet
-        dolor sapiente tenetur vitae animi, consequuntur quis facilis! Illum?
-      </p>
+    <div>
+      <div className="diff aspect-[16/9]">
+        <div className="diff-item-1">
+          <div className="bg-primary text-primary-content grid place-content-center text-9xl font-black">
+            DAISY
+          </div>
+        </div>
+        <div className="diff-item-2">
+          <div className="bg-base-200 grid place-content-center text-9xl font-black">
+            DAISY
+          </div>
+        </div>
+        <div className="diff-resizer"></div>
+      </div>
     </div>
-  )
+  );
 }
