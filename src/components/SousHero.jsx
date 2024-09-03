@@ -10,7 +10,7 @@ export default function SousHero() {
         <Phone className="w-16 h-16" />
         <h2 className="text-2xl font-bold">Emergency Cases</h2>
         <p>Ut wisi enim ad minim veniam, quis laore nostrud exerci tation </p>
-        <h2 className="text-4xl font-medium">1-800-400-7400</h2>
+        <h2 className="text-3xl font-medium">+221 76 124 10 31</h2>
       </div>
       <div className="bg-blue-600 w-1/3  p-10 flex flex-col items-start gap-5 text-white justify-between">
         <CalendarDays className="w-16 h-16" />
