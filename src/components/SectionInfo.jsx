@@ -1,29 +1,18 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import doc1 from "../assets/Doctors-bro.png";
-// import doc2 from "../assets/Doctors-pana.png";
-// import doc3 from "../assets/Medicine-cuate.png";
-// import doc4 from "../assets/Online Doctor-rafiki.png";
+import doc1 from "../assets/Online-Doctor-rafiki.png";
 
 export default function SectionInfo() {
-//   const images = [doc1, doc2, doc3, doc4];
-
   return (
     <div className="flex items-center justify-center">
       <div className="w-1/2 flex items-center justify-center">
-        {/* <div className="carousel carousel-center rounded-box">
-          {images.map((src, index) => (
-            <div key={index} className="carousel-item">
-              <img src={src} alt={`Slide ${index + 1}`} width={"500px"}/>
-            </div>
-          ))}
-        </div> */}
-        <img src={doc1} alt="doc !"  width={"600px"}/>
+        <img src={doc1} alt="doc !" width={"600px"} />
       </div>
       <div className="w-1/2 p-14 text-slate-800">
         <h2 className="text-4xl font-bold">
           Lorem ipsum dolor sit amet consectetur adipisicing
         </h2>
-        <p className="mt-5 text-justify">
+        <p className="mt-5 text-justify font-light">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque
           incidunt et nulla praesentium voluptatibus excepturi! Illo molestias
           eligendi minus iure nobis, aut id quidem blanditiis officia quis sequi
