@@ -6,6 +6,7 @@ import img from "../assets/img.jpeg";
 export const IntroductionSection = () => {
   return (
     <div>
+      
       <div
         className="relative overflow-hidden bg-cover bg-no-repeat text-center"
         style={{ backgroundImage: `url(${backgroundImage})`, height: '600px', width: '100%' }}
@@ -20,6 +21,8 @@ export const IntroductionSection = () => {
           </div>
         </div>
       </div>
+
+
       <div className="min-h-screen flex flex-col items-center justify-center p-6">
         <div className="flex flex-col lg:flex-row items-start justify-between w-full max-w-5xl">
           <div className="flex-1 mb-8 lg:mb-0 lg:mr-8">
