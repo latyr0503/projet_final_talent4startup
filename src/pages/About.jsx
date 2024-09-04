@@ -5,13 +5,22 @@ import StateSection from '../components/StateSection';
 import ServicesSection from '../components/ServicesSection';
 import { DishSection } from '../components/DishSection';
 import SectionDoctor from '../components/SectionDoctor';
+import backgroundImage from '../assets/background.jpeg';
+
 
 
 
 const About = () => {
   return (
     <div>
-      <IntroductionSection /> 
+
+<IntroductionSection
+  backgroundImage={backgroundImage}
+  title="About"
+  height="500px"
+
+  navigation={{ home: 'Home', current: '/About' }}
+/>
       <CareInfo /> 
       <ServicesSection />
       <StateSection />

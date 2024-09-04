@@ -15,7 +15,7 @@ export const ContactForm = () => {
             <textarea id="message" name="message"placeholder="Votre message" rows="6" className="mt-1 p-3 rounded-md bg-gray-200"/>
           </div>
           <button
-            className="bg-cyan-200	text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-cyan-300 transition-transform transform hover:translate-y-1"
+            className="bg-cyan-700	text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-cyan-300 transition-transform transform hover:translate-y-1"
           >
             <p>Contactez-nous</p>
             <svg
