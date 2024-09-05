@@ -45,7 +45,9 @@ export const Navbar = () => {
               </ul>
             </div>
           </div>
-          <a className="btn btn-ghost text-xl">MedClinique</a>
+          <Link to="/" className="font-bold text-xl">
+            MedClinique
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -68,7 +70,7 @@ export const Navbar = () => {
         </div>
         <div className="navbar-end">
           <button
-            className="btn btn-outline btn-success"
+            className="btn btn-outline text-blue-700 hover:bg-blue-700 hover:text-white"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             Prendre un Rendez-vous
@@ -80,7 +82,9 @@ export const Navbar = () => {
                   <X />
                 </button>
               </form>
-              <h3 className="font-bold text-3xl mb-10">Remplire le formulaire pour prendre un rendez-vous!</h3>
+              <h3 className="font-bold text-3xl mb-10">
+                Remplire le formulaire pour prendre un rendez-vous!
+              </h3>
               <FormModal />
             </div>
           </dialog>

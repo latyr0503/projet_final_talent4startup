@@ -5,27 +5,31 @@ export const IntroductionSection = ({
   backgroundImage,
   title,
   navigation,
-  height,
+  lien,
 }) => {
   return (
     <div>
       <div
-        className="relative overflow-hidden bg-cover bg-no-repeat text-center"
+        className="bg-cover"
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          height: height,
+          height: "80vh",
           width: "100%",
         }}
       >
-        <div className="flex flex-col h-full items-center justify-center space-y-4 bg-black bg-opacity-50">
-          <h2 className="text-5xl font-semibold text-white">{title}</h2>
-          <div className="flex space-x-4">
-            <Link to="/" className="font-semibold text-white hover:underline">
+        <div className="flex flex-col h-full items-center justify-center space-y-5 bg-black bg-opacity-50">
+          <h2 className="text-8xl font-bold text-white">{title}</h2>
+          <div>
+            <Link
+              to="/"
+              className="text-xl font-medium text-white hover:underline "
+            >
               {navigation.home}
             </Link>
-            <p className="text-xl font-semibold text-white">
+            <span className="mx-3 text-white text-xl font-bold">/</span>
+            <Link className="text-xl font-medium text-white hover:underline">
               {navigation.current}
-            </p>
+            </Link>
           </div>
         </div>
       </div>

@@ -76,19 +76,19 @@ function HeroCarousel() {
               {slides[currentSlide].description}
             </p>
             <ul className="pt-6 flex gap-5 items-center text-white">
-              <li className="bg-blue-700 border-2 border-white p-4 rounded-full">
+              <li className="border-2 border-white p-4 rounded-full">
                 <Activity />
               </li>
-              <li className="bg-blue-700 border-2 border-white p-4 rounded-full">
+              <li className="border-2 border-white p-4 rounded-full">
                 <Stethoscope />
               </li>
-              <li className="bg-blue-700 border-2 border-white p-4 rounded-full">
+              <li className="border-2 border-white p-4 rounded-full">
                 <HeartPulse />
               </li>
-              <li className="bg-blue-700 border-2 border-white p-4 rounded-full">
+              <li className="border-2 border-white p-4 rounded-full">
                 <Ambulance />
               </li>
-              <li className="bg-blue-700 border-2 border-white p-4 rounded-full">
+              <li className="border-2 border-white p-4 rounded-full">
                 <Zap />
               </li>
             </ul>

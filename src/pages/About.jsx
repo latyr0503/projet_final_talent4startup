@@ -13,8 +13,7 @@ const About = () => {
       <IntroductionSection
         backgroundImage={backgroundImage}
         title="About"
-        height="500px"
-        navigation={{ home: "Home", current: "/About" }}
+        navigation={{ home: "Home", current: "About" }}
       />
       <CareInfo />
       <ServicesSection />
