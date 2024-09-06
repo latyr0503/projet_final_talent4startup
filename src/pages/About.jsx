@@ -3,9 +3,10 @@ import { IntroductionSection } from "../components/IntroductionSection";
 import CareInfo from "../components/CareInfo";
 import StateSection from "../components/StateSection";
 import ServicesSection from "../components/ServicesSection";
-import { DishSection } from "../components/DishSection";
 import SectionDoctor from "../components/SectionDoctor";
 import backgroundImage from "../assets/background.jpeg";
+import GetAppointement from "../components/GetAppointement";
+import SectionInfo from "../components/SectionInfo";
 
 const About = () => {
   return (
@@ -16,10 +17,12 @@ const About = () => {
         navigation={{ home: "Home", current: "About" }}
       />
       <CareInfo />
+      <SectionInfo />
       <ServicesSection />
       <StateSection />
-      <DishSection />
+      {/* <DishSection /> */}
       <SectionDoctor />
+      <GetAppointement />
     </div>
   );
 };
