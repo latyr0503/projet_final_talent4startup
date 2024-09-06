@@ -1,76 +1,39 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardDoctor from "../Elements/CardDoctor";
-import teamMember from "../assets/team-member-1.jpg";
-import teamMember1 from "../assets/team-member-2.jpg";
-import teamMember2 from "../assets/team-member-3.jpg";
+import axios from "axios";
 
-export default function SectionDoctor() {
-  const doctors = [
-    {
-      name: "Angela Adams",
-      specialty: "Cardiac Surgery",
-      description:
-        "Ut wisi enim ad minim veniam, quis laore nostrud exerci tation ulm hedi corper turet suscipit lobortis",
-      image: teamMember, // Remplace par l'URL réelle de l'image
-      icon: "syringe", // Remplace par l'icône correspondante
-      socials: {
-        twitter: "#",
-        facebook: "#",
-        instagram: "#",
-        linkedin: "#",
-      },
-    },
-    {
-      name: "Jordan Kelley",
-      specialty: "Cardiology",
-      description:
-        "Ut wisi enim ad minim veniam, quis laore nostrud exerci tation ulm hedi corper turet suscipit lobortis",
-      image: teamMember1,
-      icon: "heartbeat",
-      socials: {
-        twitter: "#",
-        facebook: "#",
-        instagram: "#",
-        linkedin: "#",
-      },
-    },
-    {
-      name: "Nicole Dixon",
-      specialty: "Gynecology",
-      description:
-        "Ut wisi enim ad minim veniam, quis laore nostrud exerci tation ulm hedi corper turet suscipit lobortis",
-      image: teamMember2,
-      icon: "stethoscope",
-      socials: {
-        twitter: "#",
-        facebook: "#",
-        instagram: "#",
-        linkedin: "#",
-      },
-    },
-    {
-      name: "Nicole Dixon",
-      specialty: "Gynecology",
-      description:
-        "Ut wisi enim ad minim veniam, quis laore nostrud exerci tation ulm hedi corper turet suscipit lobortis",
-      image: teamMember2,
-      icon: "stethoscope",
-      socials: {
-        twitter: "#",
-        facebook: "#",
-        instagram: "#",
-        linkedin: "#",
-      },
-    },
-  ];
+export default function SectionDoctor({ limit}) {
+  const [doctors, setDoctors] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await axios.get(
+          "https://prise-de-rv-backend-nestjs.onrender.com/doctors"
+        );
+        setDoctors(response.data);
+      } catch (error) {
+        setErrorMessage("Erreur lors de la récupération des docteurs.");
+        console.error(error);
+      }
+    };
+
+    fetchDoctors();
+  }, []);
+
   return (
     <div className="text-center mb-10">
-      <div className="flex justify-center items-center p-10">
-        {doctors.map((doctor, index) => (
-          <CardDoctor key={index} doctor={doctor} />
-        ))}
+      <div className="grid grid-cols-4 gap-5 p-10">
+        {doctors.slice(0, limit).length > 0 ? (
+          doctors
+            .slice(0, limit)
+            .map((doctor, index) => <CardDoctor key={index} doctor={doctor} />)
+        ) : (
+          <p className="p-4">Aucun docteur trouvé</p>
+        )}
       </div>
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
     </div>
   );
 }

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import HeroCarousel from "../components/HeroCarousel";
 import SousHero from "../components/SousHero";
@@ -16,20 +15,20 @@ export const Home = () => {
       <SousHero />
       <SectionInfo />
       <TitreSoustitre
-        titre={"Decouvrez nos services"}
+        titre={"Découvrez nos services"}
         desctiption={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiatducimus similique possimus, voluptatum deserunt voluptas itaque ipsamamet odit id illo quibusdam culpa, eum, facilis officiis? Aliquid iustoullam illum, rem asperiores voluptatem amet itaque. Quas minima,nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dictaquis qui."
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiat ducimus similique possimus, voluptatum deserunt voluptas itaque ipsam amet odit id illo quibusdam culpa, eum, facilis officiis? Aliquid iusto ullam illum, rem asperiores voluptatem amet itaque. Quas minima, nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dicta quis qui."
         }
       />
       <ServicesSection />
       <StateSection />
       <TitreSoustitre
-        titre={" Rencontrez notre équipe"}
+        titre={"Rencontrez notre équipe"}
         desctiption={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiatducimus similique possimus, voluptatum deserunt voluptas itaque ipsamamet odit id illo quibusdam culpa, eum, facilis officiis? Aliquid iustoullam illum, rem asperiores voluptatem amet itaque. Quas minima,nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dictaquis qui."
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiat ducimus similique possimus, voluptatum deserunt voluptas itaque ipsam amet odit id illo quibusdam culpa, eum, facilis officiis? Aliquid iusto ullam illum, rem asperiores voluptatem amet itaque. Quas minima, nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dicta quis qui."
         }
       />
-      <SectionDoctor />
+      <SectionDoctor limit={4} />
       <GetAppointement />
     </div>
   );

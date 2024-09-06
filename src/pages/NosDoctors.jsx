@@ -13,10 +13,6 @@ export const NosDoctors = () => {
         navigation={{ home: "Home", current: "Nos médecins" }}
       />
       <SectionDoctor />
-      <SectionDoctor />
-      <SectionDoctor />
-      <SectionDoctor />
-      <GetAppointement />
     </div>
   );
 };
