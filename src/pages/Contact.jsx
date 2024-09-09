@@ -2,7 +2,7 @@ import React from "react";
 import { IntroductionSection } from "../components/IntroductionSection";
 import backgroundImage from "../assets/b.jpeg";
 import { ContactForm } from "../components/ContactForm";
-// import { GeolocationSection } from "../components/GeolocationSection";
+import GetAppointement from "../components/GetAppointement";
 
 const Contact = () => {
   return (
@@ -24,6 +24,7 @@ const Contact = () => {
           className="w-full"
         ></iframe>
       </div>
+      <GetAppointement />
     </div>
   );
 };

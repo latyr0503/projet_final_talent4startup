@@ -21,7 +21,7 @@ const About = () => {
       <ServicesSection />
       <StateSection />
       {/* <DishSection /> */}
-      <SectionDoctor />
+      <SectionDoctor  limit={4}/>
       <GetAppointement />
     </div>
   );
