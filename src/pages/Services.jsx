@@ -4,6 +4,7 @@ import backgroundImage from "../assets/i.jpeg";
 import ServicesSection from "../components/ServicesSection";
 import GetAppointement from "../components/GetAppointement";
 import TitreSoustitre from "../Elements/TitreSoustitre";
+import DetailDoctor from "../components/DetailDoctor";
 
 export const Services = () => {
   return (
@@ -22,6 +23,8 @@ export const Services = () => {
         />
         <ServicesSection />
       </div>
+
+      <DetailDoctor />
       <GetAppointement />
     </div>
   );
