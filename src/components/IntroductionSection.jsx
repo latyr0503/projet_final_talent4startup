@@ -10,24 +10,30 @@ export const IntroductionSection = ({
   return (
     <div>
       <div
-        className="bg-cover"
+        className="bg-cover brightness-125 backdrop-blur-lg bg-white/30 backdrop-contrast-125 bg-white/30 scroll-smooth	"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           height: "80vh",
           width: "100%",
         }}
       >
-        <div className="flex flex-col h-full items-center justify-center space-y-5 bg-black bg-opacity-50">
-          <h2 className="text-8xl font-bold text-white">{title}</h2>
-          <div>
+        <div className="flex flex-col h-full items-center justify-center space-y-5 bg-black bg-opacity-50 px-4 ">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white text-center">
+            {title}
+          </h2>
+          <div className="text-center">
             <Link
               to="/"
-              className="text-xl font-medium text-white hover:underline "
+              className="text-lg md:text-xl font-medium text-white hover:underline"
             >
               {navigation.home}
             </Link>
-            <span className="mx-3 text-white text-xl font-bold">/</span>
-            <Link className="text-xl font-medium text-white hover:underline">
+            <span className="mx-2 md:mx-3 text-white text-lg md:text-xl font-bold">
+              /
+            </span>
+            <Link
+              className="text-lg md:text-xl font-medium text-white hover:underline"
+            >
               {navigation.current}
             </Link>
           </div>

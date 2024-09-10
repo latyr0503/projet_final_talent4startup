@@ -5,70 +5,34 @@ import img from "../assets/img.jpeg";
 const CareInfo = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6">
-        <div className="flex flex-col lg:flex-row items-start justify-between w-full max-w-5xl">
-          <div className="flex-1 mb-8 lg:mb-0 lg:mr-8">
-            <h1 className="text-5xl font-bold mb-6">
-              Soins et équipements
-            </h1>
-            <h1 className="text-5xl  mb-6">
-              de qualité pour les <br />patients</h1>
-            <div className="flex justify-between text-black">
-              <div className="flex-1 text-center ">
-                <div className="flex items-start text-gray-700">
+      <div className="flex flex-col lg:flex-row items-start justify-between w-full max-w-5xl">
+        <div className="flex-1 mb-8 lg:mb-0 lg:mr-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
+            Soins et équipements
+          </h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-6">
+            de qualité pour les <br className="hidden lg:block" /> patients
+          </h1>
+          <div className="flex flex-col lg:flex-row justify-between text-black">
+            <div className="flex-1 text-center lg:text-left">
+              {Array(4).fill().map((_, index) => (
+                <div key={index} className="flex items-start text-gray-700 my-2">
                   <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
+                  <p className="flex-1 ml-2">Lorem ipsum dolor sit, amet</p>
                 </div>
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>
-
-              </div>
-              <div className="flex-1 text-right ">
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>
-                <div className="flex items-start text-gray-700">
-                  <span className="text-xl text-green-800">&rarr;</span>
-                  <p className="flex-1">
-                    <p>Lorem ipsum dolor sit, amet  </p>
-                  </p>
-                </div>            
-                </div>
+              ))}
             </div>
-            <div className="flex justify-start ">
-              <Link to="/about">
+            <div className="flex-1 text-center lg:text-right mt-4 lg:mt-0">
+              {Array(4).fill().map((_, index) => (
+                <div key={index} className="flex items-start text-gray-700 my-2">
+                  <span className="text-xl text-green-800">&rarr;</span>
+                  <p className="flex-1 ml-2">Lorem ipsum dolor sit, amet</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-start mt-6">
+            <Link to="/about">
               <button
                 className="bg-green-300 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-green-600 transition-transform transform hover:translate-y-1"
               >
@@ -88,14 +52,14 @@ const CareInfo = () => {
                   ></path>
                 </svg>
               </button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex-1 flex justify-center items-start">
-            <img src={img} alt="img" className="w-full max-w-md" />
+            </Link>
           </div>
         </div>
+        <div className="flex-1 flex justify-center items-start mt-8 lg:mt-0">
+          <img src={img} alt="img" className="w-full max-w-md" />
+        </div>
       </div>
+    </div>
   );
 };
 
