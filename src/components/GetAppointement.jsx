@@ -4,8 +4,8 @@ import { X } from "lucide-react";
 
 export default function GetAppointement() {
   return (
-    <div className="w-full bg-blue-700 p-14 text-white flex items-center justify-center gap-10">
-      <p className="text-2xl">
+    <div className="w-full bg-blue-700 p-14 text-white flex-col md:flex-row flex items-center justify-center gap-5">
+      <p className="md:text-2xl text-center">
         Contactez-nous pour plus d'informations ou prenez rendez-vous.
       </p>
       <button

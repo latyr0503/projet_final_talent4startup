@@ -8,7 +8,7 @@ import React from "react";
 
 export default function ServicesSection() {
   return (
-    <div className="grid grid-cols-3 gap-5 p-10">
+    <div className="grid md:grid-cols-3 gap-5 p-10">
       <div className="flex gap-3 p-10 items-center justify-center">
         <div>
           <HeartPulse className="w-24 h-24 text-blue-700" />

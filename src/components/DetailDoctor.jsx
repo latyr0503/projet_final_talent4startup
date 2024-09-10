@@ -45,11 +45,11 @@ const DetailDoctor = () => {
         </div>
 
         <button
-          className="mt-6 px-4 py-2 bg-blue-700 w-72 md:w-64 lg:w-72 text-white rounded-lg hover:bg-blue-500 flex items-center justify-center"
+          className="mt-6 px-4 py-2 font-bold bg-blue-700 w-72 md:w-64 lg:w-72 text-white rounded-lg hover:bg-blue-500 flex items-center gap-2 justify-center"
           onClick={handleOpenModal}
         >
-          <Calendar className="mr-2" />
-          Book Appointment
+          <Calendar size={18} />
+          Prendre un rendez-vous
         </button>
         {isModalOpen && (
           <div className="mt-2 w-72 md:w-64 lg:w-72 bg-blue-700 p-6 rounded-lg ">
