@@ -23,7 +23,7 @@ export default function SectionDoctor({ limit}) {
   }, []);
 
   return (
-    <div className="text-center mb-10">
+    <div className="text-center mb-4 -mt-4">
       <div className="grid grid-cols-4 gap-5 p-10">
         {doctors.slice(0, limit).length > 0 ? (
           doctors

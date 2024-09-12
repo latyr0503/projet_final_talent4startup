@@ -12,6 +12,7 @@ export const Services = () => {
       <IntroductionSection
         backgroundImage={backgroundImage}
         title="Nos Services"
+        height="400px"
         navigation={{ home: "Home", current: "Nos médecins" }}
       />
       <div className="my-20">

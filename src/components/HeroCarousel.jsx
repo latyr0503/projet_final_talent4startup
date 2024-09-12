@@ -2,13 +2,7 @@ import React, { useState, useEffect } from "react";
 import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
 import image3 from "../assets/image3.jpg";
-import { ChevronRight } from "lucide-react";
-import { ChevronLeft } from "lucide-react";
-import { Activity } from "lucide-react";
-import { Stethoscope } from "lucide-react";
-import { HeartPulse } from "lucide-react";
-import { Ambulance } from "lucide-react";
-import { Zap } from "lucide-react";
+import { ChevronRight, ChevronLeft, Activity, Stethoscope, HeartPulse, Ambulance, Zap } from "lucide-react";
 
 function HeroCarousel() {
   const slides = [
@@ -54,7 +48,7 @@ function HeroCarousel() {
   };
 
   return (
-    <div className="relative w-full h-[80vh]">
+    <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh]">
       <div
         className="hero h-full transition-all duration-1000 ease-in-out"
         style={{
@@ -65,49 +59,48 @@ function HeroCarousel() {
       >
         <div className="hero-overlay bg-opacity-50"></div>
 
-        <div className="hero-content flex-col lg:flex-row-reverse ">
-          <div className="w-1/2"></div>
-          <div className="w-1/2">
-            <h1 className="text-5xl text-white font-bold">
-              {" "}
+        <div className="hero-content flex-col lg:flex-row-reverse p-5">
+          <div className="lg:w-1/2 w-full"></div>
+          <div className="lg:w-1/2 w-full">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-bold">
               {slides[currentSlide].title}
             </h1>
-            <p className="pt-6 text-justify text-white">
+            <p className="pt-6 text-sm sm:text-base md:text-lg text-justify text-white">
               {slides[currentSlide].description}
             </p>
-            <ul className="pt-6 flex gap-5 items-center text-white">
-              <li className="border-2 border-white p-4 rounded-full">
-                <Activity />
+            <ul className="pt-6 flex gap-3 sm:gap-5 items-center text-white">
+              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
+                <Activity className="w-6 h-6 sm:w-8 sm:h-8" />
               </li>
-              <li className="border-2 border-white p-4 rounded-full">
-                <Stethoscope />
+              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
+                <Stethoscope className="w-6 h-6 sm:w-8 sm:h-8" />
               </li>
-              <li className="border-2 border-white p-4 rounded-full">
-                <HeartPulse />
+              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
+                <HeartPulse className="w-6 h-6 sm:w-8 sm:h-8" />
               </li>
-              <li className="border-2 border-white p-4 rounded-full">
-                <Ambulance />
+              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
+                <Ambulance className="w-6 h-6 sm:w-8 sm:h-8" />
               </li>
-              <li className="border-2 border-white p-4 rounded-full">
-                <Zap />
+              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
+                <Zap className="w-6 h-6 sm:w-8 sm:h-8" />
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Boutons de navigation */}
+      {/* Navigation Buttons */}
       <button
         onClick={handlePrevClick}
         className="absolute left-5 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-800 bg-opacity-50 hover:bg-opacity-75 text-white"
       >
-        <ChevronLeft />
+        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
       </button>
       <button
         onClick={handleNextClick}
         className="absolute right-5 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-800 bg-opacity-50 hover:bg-opacity-75 text-white"
       >
-        <ChevronRight />
+        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
       </button>
     </div>
   );

@@ -5,11 +5,12 @@ import { ContactForm } from "../components/ContactForm";
 import GetAppointement from "../components/GetAppointement";
 
 const Contact = () => {
-  return (
+  return (  
     <div>
       <IntroductionSection
         backgroundImage={backgroundImage}
         title="Contactez-nous"
+        height="400px"
         navigation={{ home: "Home", current: "Contactez-Nous" }}
       />
       <ContactForm />
@@ -21,7 +22,7 @@ const Contact = () => {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          className="w-full"
+          className="w-full -mt-32"
         ></iframe>
       </div>
       <GetAppointement />
