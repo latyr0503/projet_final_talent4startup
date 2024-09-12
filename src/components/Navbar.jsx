@@ -8,7 +8,7 @@ import FormModal from "../Elements/FormModal";
 export const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-white text-base-200">
+      <div className="navbar text-black">
         <div className="navbar-start">
           <div className="drawer  lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -45,11 +45,11 @@ export const Navbar = () => {
               </ul>
             </div>
           </div>
-          <Link to="/" className="font-bold text-xl">
+          <Link to="/" className="font-bold text-blue-700 text-xl">
             MedClinique
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center font-semibold hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
               <Link to="/">Home</Link>

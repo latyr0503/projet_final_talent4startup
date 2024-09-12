@@ -10,23 +10,20 @@ import SectionInfo from "../components/SectionInfo";
 
 const About = () => {
   return (
-    <div className="w-full">
+    <div>
       <IntroductionSection
         backgroundImage={backgroundImage}
         title="About"
         height="450px"
         navigation={{ home: "Home", current: "About" }}
-        className="lg:h-[500px] md:h-[400px] h-[300px]" 
+        className="lg:h-[500px] md:h-[400px] h-[300px]"
       />
-      <div className="container mx-auto px-4">
-        <CareInfo className="py-8" /> 
-        <SectionInfo className="py-8" />
-        <ServicesSection className="py-8" />
-        <StateSection className="py-8" />
-        {/* <DishSection /> */}
-        <SectionDoctor limit={4} className="py-8" />
-        <GetAppointement className="py-8" />
-      </div>
+      <CareInfo className="py-8" />
+      <SectionInfo className="py-8" />
+      <ServicesSection className="py-8" />
+      <StateSection className="py-8" />
+      <SectionDoctor limit={4} className="py-8" />
+      <GetAppointement />
     </div>
   );
 };

@@ -14,6 +14,8 @@ export const NosDoctors = () => {
         navigation={{ home: "Home", current: "Nos médecins" }}
       />
       <SectionDoctor />
+      <GetAppointement />
+
     </div>
   );
 };

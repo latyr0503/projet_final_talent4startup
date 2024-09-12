@@ -68,21 +68,21 @@ function HeroCarousel() {
             <p className="pt-6 text-sm sm:text-base md:text-lg text-justify text-white">
               {slides[currentSlide].description}
             </p>
-            <ul className="pt-6 flex gap-3 sm:gap-5 items-center text-white">
-              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
-                <Activity className="w-6 h-6 sm:w-8 sm:h-8" />
+            <ul className="py-6 flex gap-3 sm:gap-5 items-center text-white">
+              <li className="border-2 border-white p-3 rounded-full">
+                <Activity  />
               </li>
-              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
-                <Stethoscope className="w-6 h-6 sm:w-8 sm:h-8" />
+              <li className="border-2 border-white p-3 rounded-full">
+                <Stethoscope  />
               </li>
-              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
-                <HeartPulse className="w-6 h-6 sm:w-8 sm:h-8" />
+              <li className="border-2 border-white p-3 rounded-full">
+                <HeartPulse  />
               </li>
-              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
-                <Ambulance className="w-6 h-6 sm:w-8 sm:h-8" />
+              <li className="border-2 border-white p-3 rounded-full">
+                <Ambulance  />
               </li>
-              <li className="border-2 border-white p-2 sm:p-4 rounded-full">
-                <Zap className="w-6 h-6 sm:w-8 sm:h-8" />
+              <li className="border-2 border-white p-3 rounded-full">
+                <Zap />
               </li>
             </ul>
           </div>
