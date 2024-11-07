@@ -7,6 +7,7 @@ import GetAppointement from "../components/GetAppointement";
 import StateSection from "../components/StateSection";
 import ServicesSection from "../components/ServicesSection";
 import TitreSoustitre from "../Elements/TitreSoustitre";
+import Med from "../components/Med";
 
 export const Home = () => {
   return (
@@ -29,6 +30,7 @@ export const Home = () => {
         }
       />
       <SectionDoctor limit={4} />
+      <Med />
       <GetAppointement />
     </div>
   );
