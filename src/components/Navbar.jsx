@@ -1,6 +1,6 @@
 import { X, AlignLeft } from "lucide-react";
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FormModal from "../Elements/FormModal";
 
 const Navbar = () => {
