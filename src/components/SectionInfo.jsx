@@ -4,13 +4,13 @@ import doc1 from "../assets/Online-Doctor-rafiki.png";
 
 export default function SectionInfo() {
   return (
-    <div className="flex items-center justify-center -mt-20">
-      <div className="w-1/2 flex items-center justify-center">
+    <div className="flex items-center justify-center lg:-mt-20 sm:flex-col">
+      <div className="lg:w-1/2 flex items-center justify-center">
         <img src={doc1} alt="doc !" width={"600px"} />
       </div>
-      <div className="w-1/2 p-14 text-slate-800">
+      <div className="lg:w-1/2 lg:p-14 p-7 text-slate-800">
         <h2 className="text-3xl font-bold">
-          Lorem ipsum dolor sit amet consectetur adipisicing
+          Lorem ipsum dolor sit amet 
         </h2>
         <p className="mt-5 text-justify font-light">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque

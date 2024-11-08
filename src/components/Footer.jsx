@@ -3,7 +3,7 @@ import React from "react";
 export default function Footers() {
   return (
     <div>
-      <footer className="footer bg-base-200 text-base-content p-20">
+      <footer className="footer bg-base-200 text-base-content lg:p-16 p-10 grid sm:grid-cols-2">
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
@@ -24,28 +24,17 @@ export default function Footers() {
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </nav>
-        <form>
-          <h6 className="footer-title">Newsletter</h6>
-          <fieldset className="form-control w-80">
-            <label className="label">
-              <span className="label-text">Enter your email address</span>
-            </label>
-            <div className="join">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input input-bordered join-item"
-              />
-              <button className="btn btn-primary join-item">Subscribe</button>
-            </div>
-          </fieldset>
-        </form>
+        <nav>
+          <h6 className="footer-title">Legal</h6>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
+        </nav>
       </footer>
       <footer className="footer footer-center bg-base-300 text-base-content p-4">
         <aside>
           <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by ACME
-            Industries Ltd
+            Copyright © {new Date().getFullYear()} - All right reserved by teamTiggof
           </p>
         </aside>
       </footer>

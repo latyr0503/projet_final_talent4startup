@@ -28,10 +28,10 @@ const Med = () => {
   };
 
   const navigationItems = [
-    { id: 'Médecin', icon: <FaUserMd size={25} />, color: '#4CAF50' },
-    { id: 'Pharmacie', icon: <FaPills size={25} />, color: '#2196F3' },
-    { id: 'Questions', icon: <FaQuestionCircle size={25} />, color: '#FF9800' },
-    { id: 'Magazine', icon: <FaNewspaper size={25} />, color: '#9C27B0' },
+    { id: 'Médecin', icon: <FaUserMd size={25} />, color: '#1D4ED8' },
+    { id: 'Pharmacie', icon: <FaPills size={25} />, color: '#1D4ED8' },
+    { id: 'Questions', icon: <FaQuestionCircle size={25} />, color: '#1D4ED8' },
+    { id: 'Magazine', icon: <FaNewspaper size={25} />, color: '#1D4ED8' },
   ];
 
   const localities = [
@@ -45,14 +45,14 @@ const Med = () => {
   ];
 
   return (
-    <div className="min-h-100 bg-white p-4 sm:p-6 md:p-8">
+    <div className="min-h-100 bg-white p-4 lg:my-20 my-10 ">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-6xl mx-auto bg-blue-50 rounded-2xl shadow-xl "
       >
-        <div className="p-6 md:p-8">
-          <div className="flex justify-around mb-8 gap-4">
+        <div className="p-6">
+          <div className="grid grid-cols-4 mb-8 gap-4">
             {navigationItems.map(({ id, icon, color }) => (
               <motion.button
                 key={id}
@@ -60,7 +60,7 @@ const Med = () => {
                 onHoverStart={() => setIsHovered(id)}
                 onHoverEnd={() => setIsHovered(null)}
                 className={`relative flex flex-col items-center p-4 rounded-xl transition-all duration-300
-                  ${activePage === id 
+                  ${activePage === id
                     ? 'bg-white shadow-lg transform -translate-y-1'
                     : 'hover:bg-white hover:shadow-md'}`}
                 whileHover={{ scale: 1.05 }}
@@ -68,7 +68,7 @@ const Med = () => {
               >
                 <div
                   className={`p-3 rounded-full mb-2 transition-colors duration-300`}
-                  style={{ 
+                  style={{
                     color: activePage === id ? color : '#666',
                     background: activePage === id ? `${color}15` : 'transparent'
                   }}
@@ -76,14 +76,14 @@ const Med = () => {
                   {icon}
                 </div>
                 <span
-                  className={`text-sm font-medium transition-colors duration-300
+                  className={`text-sm sm:text-xs font-medium transition-colors duration-300
                     ${activePage === id ? 'text-gray-900' : 'text-gray-600'}`}
                 >
                   {id}
                 </span>
                 {activePage === id && (
                   <motion.div
-                    className="absolute -bottom-1 left-1/2 w-12 h-1 rounded-full"
+                    className="absolute -bottom-1  w-full h-1 rounded-full"
                     style={{ background: color }}
                     layoutId="activeIndicator"
                   />
@@ -100,7 +100,7 @@ const Med = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
               <div className="md:col-span-5">
                 <div className="relative">
-                  <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-400" />
                   <input
                     type="text"
                     placeholder={getPlaceholder()}
@@ -152,7 +152,7 @@ const Med = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500
+                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-500
                     text-white font-medium rounded-xl shadow-lg hover:shadow-xl
                     transition-all duration-300 transform hover:-translate-y-0.5"
                 >

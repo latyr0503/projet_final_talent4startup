@@ -13,12 +13,12 @@ export const Home = () => {
   return (
     <div>
       <HeroCarousel />
-      <SousHero />
+      <Med />
       <SectionInfo />
       <TitreSoustitre
         titre={"Découvrez nos services"}
         desctiption={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiat ducimus similique possimus, voluptatum deserunt voluptas itaque ipsam amet odit id illo quibusdam culpa, eum, facilis officiis? Aliquid iusto ullam illum, rem asperiores voluptatem amet itaque. Quas minima, nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dicta quis qui."
+          "Lorem ipsum dolor sit odit id illo quibusdam culpa, eum, facilis rem asperiores voluptatem amet itaque. Quas minima, nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dicta quis qui."
         }
       />
       <ServicesSection />
@@ -26,11 +26,12 @@ export const Home = () => {
       <TitreSoustitre
         titre={"Rencontrez notre équipe"}
         desctiption={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti fugiat ducimus similique possimus, voluptatum deserunt voluptas itaque ipsam amet odit id illo quibusdam culpa, eum, facilis officiis? Aliquid iusto ullam illum, rem asperiores voluptatem amet itaque. Quas minima, nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dicta quis qui."
+          "Lorem ipsum dolor sit odit id illo quibusdam culpa, eum, facilis rem asperiores voluptatem amet itaque. Quas minima, nesciunt hic dolore iure, dolor pariatur, totam expedita fugiat dicta quis qui."
         }
       />
       <SectionDoctor limit={4} />
-      <Med />
+      <SousHero />
+
       <GetAppointement />
     </div>
   );
