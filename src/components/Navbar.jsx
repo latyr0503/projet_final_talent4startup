@@ -6,7 +6,7 @@ import FormModal from "../Elements/FormModal";
 const Navbar = () => {
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
+    { to: "/about", label: "A propos" },
     { to: "/nos-doctors", label: "Nos Doctors" },
     { to: "/services", label: "Services" },
     { to: "/contact", label: "Contact" },
