@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaUserMd, FaPills, FaQuestionCircle, FaNewspaper, FaSearch, FaMapMarkerAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Med = () => {
   const [activePage, setActivePage] = useState('Médecin');
   const [searchQuery, setSearchQuery] = useState('');
   const [isHovered, setIsHovered] = useState(null);
+  const [specialtyValue, setSpecialtyValue] = useState('');
+  const [locationValue, setLocationValue] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (activePage === 'Médecin') {
+      navigate('/results', {
+        state: {
+          specialty: specialtyValue,
+          location: locationValue
+        }
+      });
+    }
+  };
 
   const handlePageChange = (page) => {
     setActivePage(page);
@@ -117,9 +132,13 @@ const Med = () => {
                 <>
                   {activePage === 'Médecin' && (
                     <div className="md:col-span-3">
-                      <select className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl
+                      <select 
+                        value={specialtyValue}
+                        onChange={(e) => setSpecialtyValue(e.target.value)}
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                        transition-all duration-300 appearance-none">
+                        transition-all duration-300 appearance-none"
+                      >
                         <option value="">Spécialité</option>
                         {specialties.map((specialty) => (
                           <option key={specialty} value={specialty.toLowerCase()}>
@@ -133,9 +152,13 @@ const Med = () => {
                   <div className="md:col-span-2">
                     <div className="relative">
                       <FaMapMarkerAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                      <select className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl
+                      <select
+                        value={locationValue}
+                        onChange={(e) => setLocationValue(e.target.value)}
+                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                        transition-all duration-300 appearance-none">
+                        transition-all duration-300 appearance-none"
+                      >
                         <option value="">Localité</option>
                         {localities.map((locality) => (
                           <option key={locality} value={locality.toLowerCase()}>
@@ -150,6 +173,7 @@ const Med = () => {
 
               <div className="md:col-span-2">
                 <motion.button
+                    onClick={handleSearch}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-500

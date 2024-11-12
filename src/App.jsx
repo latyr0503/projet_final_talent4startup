@@ -8,6 +8,7 @@ import { NosDoctors } from "./pages/NosDoctors";
 import { Services } from "./pages/Services";
 import { PageVide } from "./pages/PageVide";
 import Layout from "./components/Layout";
+import ResultsPage from "./pages/ResultsPage";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route path="nos-doctors" element={<NosDoctors />} />
             <Route path="services" element={<Services />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="results" element={<ResultsPage />} />
+
             <Route path="*" element={<PageVide />} />
           </Route>
         </Routes>
