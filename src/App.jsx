@@ -8,8 +8,13 @@ import { NosDoctors } from "./pages/NosDoctors";
 import { Services } from "./pages/Services";
 import { PageVide } from "./pages/PageVide";
 import Layout from "./components/Layout";
+import Teste from "./pages/teste";
 
 function App() {
+
+  const a = 5;
+  console.log(a);
+
   return (
     <>
       <BrowserRouter>
@@ -20,6 +25,7 @@ function App() {
             <Route path="nos-doctors" element={<NosDoctors />} />
             <Route path="services" element={<Services />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="teste" element={<Teste />} />
             <Route path="*" element={<PageVide />} />
           </Route>
         </Routes>
