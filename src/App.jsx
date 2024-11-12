@@ -9,6 +9,7 @@ import { Services } from "./pages/Services";
 import { PageVide } from "./pages/PageVide";
 import Layout from "./components/Layout";
 import Teste from "./pages/teste";
+import ResultsPage from "./pages/ResultsPage";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="services" element={<Services />} />
             <Route path="contact" element={<Contact />} />
             <Route path="teste" element={<Teste />} />
+            <Route path="results" element={<ResultsPage />} />
             <Route path="*" element={<PageVide />} />
           </Route>
         </Routes>
