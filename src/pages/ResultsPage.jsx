@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaMapMarkerAlt, FaFilter, FaLanguage, FaCalendarCheck, FaQuestionCircle, FaUserMd, FaPills, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaFilter, FaQuestionCircle, FaUserMd, FaPills, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 
 const ResultsPage = () => {
@@ -130,7 +130,7 @@ const ResultsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto mb-8">
-        <div className="bg-white rounded-xl shadow-xl p-6 flex items-center space-x-6 transition-transform hover:scale-105">
+        <div className="bg-white rounded-xl shadow-xl p-6 flex items-center space-x-6 transition-transform hover:scale-95">
           <img
             src={`https://i.pinimg.com/736x/dd/f2/e2/ddf2e28d01e9260ecdf666ac31c8b21f.jpg`}
             alt={specialty}
@@ -146,7 +146,7 @@ const ResultsPage = () => {
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-3">
-          <div className="bg-white rounded-xl shadow-xl p-6 space-y-6 transition-transform hover:scale-105">
+          <div className="bg-white rounded-xl shadow-xl p-6 space-y-6 transition-transform hover:scale-95">
             <h2 className="text-xl font-semibold flex items-center gap-2 text-blue-600">
               <FaFilter className="text-blue-600" />
               Filtres
@@ -204,7 +204,7 @@ const ResultsPage = () => {
         {filteredDoctors.map(doctor => (
           <div
             key={doctor.id}
-            className="flex items-center bg-white space-x-8 p-4 hover:bg-gray-100 rounded-lg transition-transform transform hover:scale-105 border-b last:border-b-0 mb-4"
+            className="flex items-center bg-white space-x-8 p-4 hover:bg-gray-100 rounded-lg transition-transform transform hover:scale-95 border-b last:border-b-0 mb-4"
           >
             <img
               src={doctor.image}
@@ -217,7 +217,7 @@ const ResultsPage = () => {
             </div>
             <button
               onClick={() => handleDoctorClick(doctor)}
-              className="mt-3 px-6 py-2  bg-cyan-500 text-white rounded-lg hover:bg-cyan-700 transition-colors duration-300 transform hover:scale-105"
+              className="mt-3 px-6 py-2  bg-cyan-500 text-white rounded-lg hover:bg-cyan-700 transition-colors duration-300 transform hover:scale-95"
             >
                fiche
             </button>
@@ -226,7 +226,7 @@ const ResultsPage = () => {
       </div>
     </div>
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white rounded-xl shadow-xl p-6 transition-transform hover:scale-105">
+          <div className="bg-white rounded-xl shadow-xl p-6 transition-transform hover:scale-95">
             <h3 className="text-xl font-semibold text-blue-600 flex items-center gap-2">
               <FaQuestionCircle className="text-blue-600" />
               Questions médicales
@@ -238,7 +238,7 @@ const ResultsPage = () => {
             </ul>
           </div>
           
-          <div className="bg-white rounded-xl shadow-xl p-6 transition-transform hover:scale-105">
+          <div className="bg-white rounded-xl shadow-xl p-6 transition-transform hover:scale-95">
             <h3 className="text-xl font-semibold text-blue-600 flex items-center gap-2">
               <FaUserMd className="text-blue-600" />
               Actes médicaux
@@ -250,7 +250,7 @@ const ResultsPage = () => {
             </ul>
           </div>
 
-          <div className="bg-white rounded-xl shadow-xl p-6 transition-transform hover:scale-105">
+          <div className="bg-white rounded-xl shadow-xl p-6 transition-transform hover:scale-95">
             <h3 className="text-xl font-semibold text-blue-600 flex items-center gap-2">
               <FaPills className="text-blue-600" />
               Maladies traitées
@@ -338,7 +338,7 @@ const ResultsPage = () => {
                 </div>
               </div>
               <div className="mt-8 text-center">
-                <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+                <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-95">
                   Prendre rendez-vous
                 </button>
               </div>
