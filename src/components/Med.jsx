@@ -19,6 +19,12 @@ const Med = () => {
           location: locationValue
         }
       });
+    } else if (activePage === 'Pharmacie' && locationValue) {
+      navigate('/pharma', {
+        state: {
+          location: locationValue
+        }
+      });
     }
   };
 
