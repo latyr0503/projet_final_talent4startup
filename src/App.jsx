@@ -10,6 +10,7 @@ import { PageVide } from "./pages/PageVide";
 import Layout from "./components/Layout";
 import Teste from "./pages/teste";
 import ResultsPage from "./pages/ResultsPage";
+import PharmaPage from "./pages/PharmaPage";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="teste" element={<Teste />} />
             <Route path="results" element={<ResultsPage />} />
+            <Route path="pharma" element={<PharmaPage />} />
             <Route path="*" element={<PageVide />} />
           </Route>
         </Routes>
