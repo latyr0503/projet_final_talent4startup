@@ -95,6 +95,7 @@ const PharmaPage = () => {
           <h1 className="text-4xl font-bold text-emerald-900 flex items-center gap-3">
             <FaHospitalAlt className="text-emerald-600" />
             Pharmacies {locationQuery && `à ${locationQuery}`}
+
           </h1>
           <div className="flex items-center space-x-4">
             <div className="relative">
@@ -210,7 +211,7 @@ const PharmaPage = () => {
                           className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
                           onClick={(e) => {
                             e.stopPropagation();
-                            window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(pharmacy.address)}`, '_blank');
+                          window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(pharmacy.address)}`, '_blank');
                           }}
                         >
                           <FaDirections />
