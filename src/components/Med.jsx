@@ -25,12 +25,20 @@ const Med = () => {
           location: locationValue
         }
       });
+    } else if (activePage === 'Magazine') {
+      navigate('/magazine', {
+        state: {
+          searchQuery: searchQuery
+        }
+      });
     }
   };
 
   const handlePageChange = (page) => {
     setActivePage(page);
     setSearchQuery('');
+    setSpecialtyValue('');
+    setLocationValue('');
   };
 
   const getPlaceholder = () => {
@@ -104,7 +112,7 @@ const Med = () => {
                 </span>
                 {activePage === id && (
                   <motion.div
-                    className="absolute -bottom-1  w-full h-1 rounded-full"
+                    className="absolute -bottom-1 w-full h-1 rounded-full"
                     style={{ background: color }}
                     layoutId="activeIndicator"
                   />
@@ -119,7 +127,7 @@ const Med = () => {
             className="space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-              <div className="md:col-span-5">
+              <div className={`md:col-span-${activePage === 'Magazine' ? '10' : '5'}`}>
                 <div className="relative">
                   <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-400" />
                   <input
@@ -179,7 +187,7 @@ const Med = () => {
 
               <div className="md:col-span-2">
                 <motion.button
-                    onClick={handleSearch}
+                  onClick={handleSearch}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-500

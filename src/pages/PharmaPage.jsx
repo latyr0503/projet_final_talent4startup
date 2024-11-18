@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaMapMarkerAlt, FaFilter, FaPhone, FaDirections, FaClock, FaSearch } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaFilter, FaPhone, FaDirections, FaClock, FaSearch, FaTimes, FaHospitalAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 
 const PharmaPage = () => {
@@ -58,20 +58,19 @@ const PharmaPage = () => {
       payment: ["Espèces", "Mobile Money"]
     },
     {
-        id: 4,
-        name: "Pharmacie Centrale",
-        location: "Dakar",
-        address: "123 Avenue Leopold Sedar Senghor, Dakar",
-        phone: "+221 77 123 45 67",
-        hours: {
-          weekday: "8h-23h",
-          weekend: "9h-22h"
-        },
-        services: ["Livraison à domicile", "Tests rapides", "Conseil pharmaceutique"],
-        garde: true,
-        payment: ["Espèces", "Carte bancaire", "Mobile Money"]
+      id: 4,
+      name: "Pharmacie Centrale",
+      location: "Dakar",
+      address: "123 Avenue Leopold Sedar Senghor, Dakar",
+      phone: "+221 77 123 45 67",
+      hours: {
+        weekday: "8h-23h",
+        weekend: "9h-22h"
       },
-    
+      services: ["Livraison à domicile", "Tests rapides", "Conseil pharmaceutique"],
+      garde: true,
+      payment: ["Espèces", "Carte bancaire", "Mobile Money"]
+    },
   ];
 
   const [filters, setFilters] = useState({
@@ -89,25 +88,32 @@ const PharmaPage = () => {
     );
   });
 
-  useEffect(() => {
-    setFilters(prevFilters => ({
-      ...prevFilters,
-      location: locationQuery || prevFilters.location,
-    }));
-  }, [locationQuery]);
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Pharmacies {locationQuery && `à ${locationQuery}`}
-        </h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-4xl font-bold text-emerald-900 flex items-center gap-3">
+            <FaHospitalAlt className="text-emerald-600" />
+            Pharmacies {locationQuery && `à ${locationQuery}`}
+          </h1>
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <input 
+                type="text" 
+                placeholder="Recherche rapide" 
+                className="pl-10 pr-4 py-2 rounded-full bg-emerald-100 border border-emerald-300 focus:ring-2 focus:ring-emerald-500"
+              />
+              <FaSearch className="absolute left-3 top-3 text-emerald-600" />
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl shadow-lg p-6 space-y-6 sticky top-4">
-              <h2 className="text-xl font-semibold flex items-center gap-2 text-green-600">
+              <h2 className="text-xl font-semibold flex items-center gap-2 text-emerald-600">
                 <FaFilter />
-                Filtres
+                Filtres avancés
               </h2>
 
               <div className="space-y-4">
@@ -154,50 +160,68 @@ const PharmaPage = () => {
           </div>
 
           <div className="lg:col-span-9">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredPharmacies.map((pharmacy) => (
-                <div
-                  key={pharmacy.id}
-                  className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
-                  onClick={() => handlePharmacyClick(pharmacy)}
-                >
-                  <div className="flex flex-col space-y-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900">{pharmacy.name}</h3>
-                      <p className="flex items-center gap-2 text-gray-600 mt-2">
-                        <FaMapMarkerAlt className="text-green-600" />
-                        {pharmacy.address}
-                      </p>
-                      <p className="flex items-center gap-2 text-gray-600 mt-1">
-                        <FaPhone className="text-green-600" />
-                        {pharmacy.phone}
-                      </p>
-                      <p className="flex items-center gap-2 text-gray-600 mt-1">
-                        <FaClock className="text-green-600" />
-                        {pharmacy.hours.weekday}
-                      </p>
-                    </div>
-                    <div className="flex justify-between items-center pt-4">
-                      {pharmacy.garde && (
-                        <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                          De garde
-                        </span>
-                      )}
-                      <button
-                        className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(pharmacy.address)}`, '_blank');
-                        }}
-                      >
-                        <FaDirections />
-                        Itinéraire
-                      </button>
+            {filteredPharmacies.length === 0 ? (
+              <div className="bg-white rounded-xl shadow-lg p-12 text-center">
+                <FaTimes className="mx-auto text-5xl text-red-500 mb-4" />
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  Aucune pharmacie trouvée
+                </h3>
+                <p className="text-gray-600">
+                  Essayez de modifier vos filtres de recherche
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {filteredPharmacies.map((pharmacy) => (
+                  <div
+                    key={pharmacy.id}
+                    className="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-pointer"
+                    onClick={() => handlePharmacyClick(pharmacy)}
+                  >
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-xl font-bold text-emerald-800 group-hover:text-emerald-900">
+                          {pharmacy.name}
+                        </h3>
+                        {pharmacy.garde && (
+                          <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-semibold">
+                            De garde
+                          </span>
+                        )}
+                      </div>
+                      
+                      <div className="space-y-2 text-gray-600">
+                        <p className="flex items-center gap-2">
+                          <FaMapMarkerAlt className="text-emerald-600" />
+                          {pharmacy.address}
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <FaPhone className="text-emerald-600" />
+                          {pharmacy.phone}
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <FaClock className="text-emerald-600" />
+                          {pharmacy.hours.weekday}
+                        </p>
+                      </div>
+
+                      <div className="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <button
+                          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(pharmacy.address)}`, '_blank');
+                          }}
+                        >
+                          <FaDirections />
+                          Itinéraire
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
