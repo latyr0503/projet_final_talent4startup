@@ -11,6 +11,8 @@ import Layout from "./components/Layout";
 import Teste from "./pages/teste";
 import ResultsPage from "./pages/ResultsPage";
 import PharmaPage from "./pages/PharmaPage";
+import MagazinePage from "./pages/MagazinePage";
+import ArticleDetailPage from "./pages/ArticleDetailPage";
 
 function App() {
 
@@ -30,6 +32,8 @@ function App() {
             <Route path="teste" element={<Teste />} />
             <Route path="results" element={<ResultsPage />} />
             <Route path="pharma" element={<PharmaPage />} />
+            <Route path="magazine" element={<MagazinePage />} />
+            <Route path="/magazine/article/:id" element={<ArticleDetailPage />} />
             <Route path="*" element={<PageVide />} />
           </Route>
         </Routes>
