@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaFilter, FaPhone, FaDirections, FaClock, FaSearch, FaTimes, FaHospitalAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const PharmaPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPharmacy, setSelectedPharmacy] = useState(null);
+  const [quickSearch, setQuickSearch] = useState('');
 
   const handlePharmacyClick = (pharmacy) => {
     setSelectedPharmacy(pharmacy);
@@ -81,30 +82,45 @@ const PharmaPage = () => {
   });
 
   const filteredPharmacies = pharmacies.filter(pharmacy => {
-    return (
+    const matchesQuickSearch = quickSearch === '' || 
+      pharmacy.name.toLowerCase().includes(quickSearch.toLowerCase()) ||
+      pharmacy.address.toLowerCase().includes(quickSearch.toLowerCase());
+
+    const matchesFilters = 
       pharmacy.location.toLowerCase().includes(filters.location.toLowerCase()) &&
       (filters.name === '' || pharmacy.name.toLowerCase().includes(filters.name.toLowerCase())) &&
-      (!filters.garde || pharmacy.garde)
-    );
+      (!filters.garde || pharmacy.garde);
+
+    return matchesQuickSearch && matchesFilters;
   });
+
+  const handleQuickSearchChange = (e) => {
+    setQuickSearch(e.target.value);
+  };
+
+  const handleDirectionsClick = (address, e) => {
+    e.stopPropagation();
+    window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           <h1 className="text-4xl font-bold text-emerald-900 flex items-center gap-3">
             <FaHospitalAlt className="text-emerald-600" />
             Pharmacies {locationQuery && `à ${locationQuery}`}
-
           </h1>
           <div className="flex items-center space-x-4">
-            <div className="relative">
+            <div className="relative flex-1 md:flex-none">
               <input 
                 type="text" 
                 placeholder="Recherche rapide" 
-                className="pl-10 pr-4 py-2 rounded-full bg-emerald-100 border border-emerald-300 focus:ring-2 focus:ring-emerald-500"
+                className="w-full md:w-auto pl-10 pr-4 py-2 rounded-full bg-emerald-100 border border-emerald-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                value={quickSearch}
+                onChange={handleQuickSearchChange}
               />
-              <FaSearch className="absolute left-3 top-3 text-emerald-600" />
+              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-emerald-600" />
             </div>
           </div>
         </div>
@@ -124,7 +140,7 @@ const PharmaPage = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 bg-green-100 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-emerald-50 rounded-lg border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                     placeholder="Rechercher..."
                     value={filters.name}
                     onChange={(e) => setFilters({ ...filters, name: e.target.value })}
@@ -137,7 +153,7 @@ const PharmaPage = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 rounded-lg bg-green-100 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-2 rounded-lg bg-emerald-50 border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                     placeholder="Ville..."
                     value={filters.location}
                     onChange={(e) => setFilters({ ...filters, location: e.target.value })}
@@ -150,9 +166,9 @@ const PharmaPage = () => {
                     id="garde"
                     checked={filters.garde}
                     onChange={(e) => setFilters({ ...filters, garde: e.target.checked })}
-                    className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-100 rounded"
+                    className="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-emerald-300 rounded transition-all duration-200"
                   />
-                  <label htmlFor="garde" className="ml-2 text-sm text-green-700">
+                  <label htmlFor="garde" className="ml-2 text-sm text-emerald-700">
                     Pharmacie de garde
                   </label>
                 </div>
@@ -193,26 +209,23 @@ const PharmaPage = () => {
                       
                       <div className="space-y-2 text-gray-600">
                         <p className="flex items-center gap-2">
-                          <FaMapMarkerAlt className="text-emerald-600" />
-                          {pharmacy.address}
+                          <FaMapMarkerAlt className="text-emerald-600 flex-shrink-0" />
+                          <span className="line-clamp-2">{pharmacy.address}</span>
                         </p>
                         <p className="flex items-center gap-2">
-                          <FaPhone className="text-emerald-600" />
+                          <FaPhone className="text-emerald-600 flex-shrink-0" />
                           {pharmacy.phone}
                         </p>
                         <p className="flex items-center gap-2">
-                          <FaClock className="text-emerald-600" />
+                          <FaClock className="text-emerald-600 flex-shrink-0" />
                           {pharmacy.hours.weekday}
                         </p>
                       </div>
 
                       <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                         <button
-                          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                          window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(pharmacy.address)}`, '_blank');
-                          }}
+                          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+                          onClick={(e) => handleDirectionsClick(pharmacy.address, e)}
                         >
                           <FaDirections />
                           Itinéraire
@@ -232,10 +245,18 @@ const PharmaPage = () => {
           <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">{selectedPharmacy.name}</h2>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">{selectedPharmacy.name}</h2>
+                  {selectedPharmacy.garde && (
+                    <span className="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
+                      De garde
+                    </span>
+                  )}
+                </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700 text-xl"
+                  className="text-gray-500 hover:text-gray-700 text-xl transition-colors duration-200"
+                  aria-label="Fermer"
                 >
                   ✕
                 </button>
@@ -244,31 +265,41 @@ const PharmaPage = () => {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-semibold text-lg mb-3">Informations</h3>
-                    <p className="flex items-center gap-2 text-gray-600">
-                      <FaMapMarkerAlt className="text-green-600" />
-                      {selectedPharmacy.address}
-                    </p>
-                    <p className="flex items-center gap-2 text-gray-600 mt-2">
-                      <FaPhone className="text-green-600" />
-                      {selectedPharmacy.phone}
-                    </p>
+                    <h3 className="font-semibold text-lg mb-3 text-emerald-800">Informations</h3>
+                    <div className="space-y-2">
+                      <p className="flex items-center gap-2 text-gray-600">
+                        <FaMapMarkerAlt className="text-emerald-600 flex-shrink-0" />
+                        <span className="line-clamp-2">{selectedPharmacy.address}</span>
+                      </p>
+                      <p className="flex items-center gap-2 text-gray-600">
+                        <FaPhone className="text-emerald-600 flex-shrink-0" />
+                        {selectedPharmacy.phone}
+                      </p>
+                    </div>
                   </div>
                   
                   <div>
-                    <h3 className="font-semibold text-lg mb-3">Horaires</h3>
-                    <p className="text-gray-600">Semaine: {selectedPharmacy.hours.weekday}</p>
-                    <p className="text-gray-600">Weekend: {selectedPharmacy.hours.weekend}</p>
+                    <h3 className="font-semibold text-lg mb-3 text-emerald-800">Horaires</h3>
+                    <div className="space-y-2">
+                      <p className="flex items-center gap-2 text-gray-600">
+                        <span className="font-medium">Semaine:</span> 
+                        {selectedPharmacy.hours.weekday}
+                      </p>
+                      <p className="flex items-center gap-2 text-gray-600">
+                        <span className="font-medium">Weekend:</span> 
+                        {selectedPharmacy.hours.weekend}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-lg mb-3">Services</h3>
+                  <h3 className="font-semibold text-lg mb-3 text-emerald-800">Services</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedPharmacy.services.map((service, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm"
+                        className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm"
                       >
                         {service}
                       </span>
@@ -277,7 +308,7 @@ const PharmaPage = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-lg mb-3">Moyens de paiement</h3>
+                  <h3 className="font-semibold text-lg mb-3 text-emerald-800">Moyens de paiement</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedPharmacy.payment.map((method, index) => (
                       <span
@@ -288,6 +319,16 @@ const PharmaPage = () => {
                       </span>
                     ))}
                   </div>
+                </div>
+
+                <div className="pt-4 flex justify-end">
+                  <button
+                    onClick={() => handleDirectionsClick(selectedPharmacy.address, { stopPropagation: () => {} })}
+                    className="flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+                  >
+                    <FaDirections />
+                    Obtenir l'itinéraire
+                  </button>
                 </div>
               </div>
             </div>
