@@ -13,6 +13,7 @@ import ResultsPage from "./pages/ResultsPage";
 import PharmaPage from "./pages/PharmaPage";
 import MagazinePage from "./pages/MagazinePage";
 import ArticleDetailPage from "./pages/ArticleDetailPage";
+import DetailDoctor from "./pages/DetailDoctor";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="nos-doctors" element={<NosDoctors />} />
+            <Route path="nos-doctors/:id" element={<DetailDoctor />} />
             <Route path="services" element={<Services />} />
             <Route path="contact" element={<Contact />} />
             <Route path="teste" element={<Teste />} />
